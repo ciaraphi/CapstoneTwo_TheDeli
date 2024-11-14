@@ -1,30 +1,34 @@
 package com.ps;
         import java.util.HashMap;
         import java.util.Scanner;
-
 public class UserInterface {
     private Scanner scanner;
     private Topping topping;
     private Order currentOrder;
-
     public UserInterface() {
         scanner = new Scanner(System.in);
         topping = new Topping();
     }
-
     public void start() {
         System.out.println("Welcome to Cece’s Deli!");
+        System.out.println(" Please enter you name: ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
 
         boolean running = true;
         while (running) {
             System.out.println("1) New Order\n0) Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
+
             if (choice == 1) {
                 currentOrder = new Order();
                 handleOrder();
             } else if (choice == 0) {
+                System.out.println("Thank you for visiting Cece's Deli, " + userName + "!");
                 running = false;
+            } else {
+                System.out.println("Invalid choice, please try again.");
             }
         }
     }

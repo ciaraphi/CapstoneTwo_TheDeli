@@ -9,7 +9,7 @@ public class Drink {
     public Drink(String size, String flavor) {
         this.size = size;
         this.price = calculatedPrice();
-        this.flavor = this.flavor;
+        this.flavor = flavor;
 
 
     }
