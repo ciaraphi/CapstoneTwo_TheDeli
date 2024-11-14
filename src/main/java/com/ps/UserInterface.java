@@ -5,10 +5,12 @@ public class UserInterface {
     private Scanner scanner;
     private Topping topping;
     private Order currentOrder;
+
     public UserInterface() {
         scanner = new Scanner(System.in);
         topping = new Topping();
     }
+
     public void start() {
         System.out.println("Welcome to Cece’s Deli!");
         System.out.println(" Please enter you name: ");
@@ -40,11 +42,22 @@ public class UserInterface {
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
-                case 1: addSandwich(); break;
-                case 2: addDrink(); break;
-                case 3: addChip(); break;
-                case 4: checkout(); ordering = false; break;
-                case 0: ordering = false; break;
+                case 1:
+                    addSandwich();
+                    break;
+                case 2:
+                    addDrink();
+                    break;
+                case 3:
+                    addChip();
+                    break;
+                case 4:
+                    checkout();
+                    ordering = false;
+                    break;
+                case 0:
+                    ordering = false;
+                    break;
             }
         }
     }
@@ -131,6 +144,8 @@ public class UserInterface {
 
     private void checkout() {
         System.out.println("Order Summary:");
+        Receipt receipt = new Receipt(currentOrder, topping);
+        receipt.printAndSaveReceipt();
 
         System.out.println("Sandwiches:");
         for (Sandwich sandwich : currentOrder.getSandwiches()) {
@@ -153,6 +168,6 @@ public class UserInterface {
     }
 
     private void saveReceipt() {
-        System.out.println("Receipt saved.");
     }
-}
+
+    }
