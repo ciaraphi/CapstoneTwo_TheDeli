@@ -1,12 +1,14 @@
 package com.ps;
+
 import java.util.ArrayList;
+
 public class Order {
     private ArrayList<Sandwich> sandwiches;
     private ArrayList<Drink> drinks;
     private ArrayList<Chip> chips;
 
     public Order() {
-        sandwiches new ArrayList<>();
+        sandwiches = new ArrayList<>();
         drinks = new ArrayList<>();
         chips = new ArrayList<>();
     }
@@ -26,15 +28,31 @@ public class Order {
     public double calculateTotalCost(Topping topping) {
         double total = 0.0;
 
-        for (sandwich sandwich : sandwiches) {
-            total += sandwich.calculateCost(toppings);
+        for (Sandwich sandwich : sandwiches) {
+            total += sandwich.calculateCost(topping);
         }
+
         for (Drink drink : drinks) {
             total += drink.getPrice();
         }
-        for (Chip chip chip) {
-            total += chip.geftPrice();
+
+        for (Chip chip : chips) {
+            total += chip.getPrice();
         }
+
         return total;
     }
+
+    public ArrayList<Sandwich> getSandwiches() {
+        return sandwiches;
+    }
+
+    public ArrayList<Drink> getDrinks() {
+        return drinks;
+    }
+
+    public ArrayList<Chip> getChips() {
+        return chips;
+    }
 }
+

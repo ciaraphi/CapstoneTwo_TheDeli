@@ -2,8 +2,8 @@ package com.ps;
 
 public class Main {
     public static void main(String[] args) {
-Order order = new Order();
-order.start();
+UserInterface ui = new UserInterface();
+ui.start();
 //start method
     }
 }
